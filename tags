@@ -1,0 +1,21 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+colon	tags_convertor.py	/^         colon = words[i].find(':')$/;"	kind:variable	line:25	language:Python
+colon	tags_convertor.py	/^      colon = words[3].find(':')$/;"	kind:variable	line:13	language:Python
+dictionary	tags_convertor.py	/^      dictionary = {"tag": tag_name, "file name": file_name, "search pattern": search_pattern}$/;"	kind:variable	line:12	language:Python
+dicts	tags_convertor.py	/^dicts = []$/;"	kind:variable	line:2	language:Python
+field	tags_convertor.py	/^         field = words[i][:colon+1]$/;"	kind:variable	line:26	language:Python
+file_name	tags_convertor.py	/^      file_name = words[1]$/;"	kind:variable	line:10	language:Python
+fl	tags_convertor.py	/^fl = open('\/home\/jhazelden\/py\/tags')$/;"	kind:variable	line:1	language:Python
+kind_type	tags_convertor.py	/^      kind_type = len(words[3])$/;"	kind:variable	line:14	language:Python
+line	tags_convertor.py	/^   line = line.strip()$/;"	kind:variable	line:4	language:Python
+search_pattern	tags_convertor.py	/^      search_pattern = words[2]$/;"	kind:variable	line:11	language:Python
+starter	tags_convertor.py	/^         starter = 4$/;"	kind:variable	line:19	language:Python
+starter	tags_convertor.py	/^         starter = 4$/;"	kind:variable	line:22	language:Python
+starter	tags_convertor.py	/^      starter = 3$/;"	kind:variable	line:15	language:Python
+tag_name	tags_convertor.py	/^      tag_name = words[0]$/;"	kind:variable	line:9	language:Python
+words	tags_convertor.py	/^      words = line.split('\\t')$/;"	kind:variable	line:8	language:Python
