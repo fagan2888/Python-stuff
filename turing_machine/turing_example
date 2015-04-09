@@ -1,0 +1,8 @@
+class example():
+    def __init__(self, start_pos, tape, blank):
+        Turing.__init__(self, start_pos, tape, blank)
+
+    def
+
+
+
