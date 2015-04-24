@@ -6,7 +6,8 @@ class Turing():
         self.tape = [tape]
         self.blank = blank
         self.counter = 0
-    
+        self.steps = 0 
+
 #Right method:
     def r(self):
         if self.pos == len(self.tape)-1:
@@ -27,5 +28,7 @@ class Turing():
 #Write method:
     def w(self, inp):
         self.tape[self.pos] = inp
-        print(str(self.tape).center(40-self.counter))
-
+        print(str(self.tape).center(100-self.counter))
+        self.steps += 1
+        print("steps: ", self.steps)
+        print(("state: " + self.state).center(200))
