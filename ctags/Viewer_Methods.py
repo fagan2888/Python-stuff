@@ -42,6 +42,7 @@ class TagsView(View):
             self.names.append(name)
             self.info.append({name:self.pos})
 
+#Inherits view isn't completed
 class InheritsView(View):
     def __init__(self, db):
         self.inheriters = []
@@ -68,13 +69,13 @@ class InheritsView(View):
             inherit = {record["tag"]:record["inherits"]}
             self.inheriters.append(inherit)
 
+#Some messing about:
 db = Database.CtagsDatabase()
 db.load('./tags')
 tags_view = TagsView(db)
 inherits_view = InheritsView(db)
 print(inherits_view.inheriters)
 print(inherits_view.classes)
-
 for i in tags_view.info:
     if "Turing" in i:
         print(i["Turing"])
