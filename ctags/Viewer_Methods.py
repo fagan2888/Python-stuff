@@ -42,27 +42,41 @@ class TagsView(View):
             self.names.append(name)
             self.info.append({name:self.pos})
 
-#class InheritsView(View):
-#    def __init__(self):
-#        MainView.addview(self)
-#
-#    def run(self, database):
-#        self.database = database
-#        classes = []
-#        inheriters = []
-#        for i in self.database:
-#            if "KIND" in i:
-#                if i["KIND"] == "class":
-#                    main_class = i["tag"]
-#                    classes.append(main_class)
+class InheritsView(View):
+    def __init__(self, db):
+        self.inheriters = []
+        self.classes = []
+        super().__init__(db)
 
+    def clear(self):
+        try:
+            self.inheriters = []
+            self.classes = []
+        except AttributeError:
+            pass
+
+    def on_new_record(self, record):
+        if "KIND" in record:
+            if record["KIND"] == "class":
+                main_class = record["tag"]
+                self.classes.append(main_class)
+        if "kind" in record:
+            if record["kind"] == "c":
+                main_class = record["tag"]
+                self.classes.append(main_class)
+        if "inherits" in record and record["inherits"] != '':
+            inherit = {record["tag"]:record["inherits"]}
+            self.inheriters.append(inherit)
 
 db = Database.CtagsDatabase()
 db.load('./tags')
 tags_view = TagsView(db)
-print(tags_view.info)
+inherits_view = InheritsView(db)
+print(inherits_view.inheriters)
+print(inherits_view.classes)
+
 for i in tags_view.info:
-    if "Busy" in i:
-        print(i["Busy"])
-        for x in i["Busy"]:
+    if "Turing" in i:
+        print(i["Turing"])
+        for x in i["Turing"]:
             print(db.records[x])
