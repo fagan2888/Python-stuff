@@ -43,10 +43,10 @@ class TagsView(View):
             self.info.append({name:self.pos})
 
 #Inherits view isn't completed
-class InheritsView(View):
+class RecordClasses(View):
     def __init__(self, db):
-        self.inheriters = []
         self.classes = []
+        self.cdb = []
         super().__init__(db)
 
     def clear(self):
@@ -55,6 +55,7 @@ class InheritsView(View):
             self.classes = []
         except AttributeError:
             pass
+
 
     def on_new_record(self, record):
         if "KIND" in record:
@@ -65,19 +66,29 @@ class InheritsView(View):
             if record["kind"] == "c":
                 main_class = record["tag"]
                 self.classes.append(main_class)
-        if "inherits" in record and record["inherits"] != '':
-            inherit = {record["tag"]:record["inherits"]}
-            self.inheriters.append(inherit)
+        self.cdb.append(record) 
+
 
 #Some messing about:
 db = Database.CtagsDatabase()
 db.load('./tags')
 tags_view = TagsView(db)
-inherits_view = InheritsView(db)
-print(inherits_view.inheriters)
-print(inherits_view.classes)
-for i in tags_view.info:
-    if "Turing" in i:
-        print(i["Turing"])
-        for x in i["Turing"]:
-            print(db.records[x])
+inherits_view = RecordClasses(db)
+def InheritsView():
+    inherit = 0
+    dic = []
+    class_mapping = {}
+    for ass in inherits_view.classes:
+        for line in inherits_view.cdb:
+            if 'inherits' in line and line['inherits'] == ass:
+                try:
+                    if line["tag"] in class_mapping[ass]:
+                        pass
+                except KeyError:
+                    if ass in class_mapping:
+                        class_mapping[ass] = class_mapping[ass], line["tag"]
+                    else:
+                        class_mapping[ass] = line["tag"]
+                dic.append(class_mapping)
+    print(dic)
+InheritsView()

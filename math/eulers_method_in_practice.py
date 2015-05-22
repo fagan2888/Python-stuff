@@ -1,4 +1,4 @@
-from math import sin, cos, asin, pi, sqrt, acos
+from math import *
 import matplotlib.pyplot as plt 
 class Approximate:
     def __init__(self, Dt, x_init, y_init, t_init, t_final):
@@ -18,11 +18,11 @@ class Approximate:
     def run(self):
         constant = float(input("constant of proportionality> "))
         velocity = float(input("initial velocity> "))
-        mass = float(input("mass> "))
+        self.mass = float(input("self.mass> "))
         initial_angle = eval(input("initial angle> "))
 #More desirable configuration are asked
 
-        Fg = -(9.81*mass)
+        Fg = -(9.81*self.mass)
 #Define the force of gravity and make it negative
 
         Vx = cos(initial_angle)*velocity
@@ -43,8 +43,8 @@ class Approximate:
             Fy = -(Fa*Vy/velocity)+Fg
 
 #Define force in x and y
-            Ax = Fx/mass
-            Ay = Fy/mass
+            Ax = Fx/self.mass
+            Ay = Fy/self.mass
 
             Vx = Vx + self.Dt*Ax
             Vy = Vy + self.Dt*Ay
@@ -53,8 +53,6 @@ class Approximate:
             self.x = self.x + self.Dt*Vx
             self.y = self.y + self.Dt*Vy
             velocity = sqrt(Vx**2 + Vy**2)
-            if self.y < 0:
-                break
 
 #Basic syntax: Approximate(steps, x init, y_init, t_init, t_final)
 running = Approximate(.01, 0, 0, 0, 100)
@@ -72,6 +70,5 @@ plt.subplot(3,1,3)
 plt.plot(running.times,running.vs)
 plt.xlabel('Time')
 plt.ylabel('Velocity')
-
 
 plt.show()

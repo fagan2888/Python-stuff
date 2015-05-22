@@ -6,10 +6,10 @@
 !_TAG_PROGRAM_VERSION	5.8	//
 A	busy_beaver.py	/^    def A(self):$/;"	member	line:12
 B	busy_beaver.py	/^    def B(self):$/;"	member	line:22
-Busy	3_state_busy_beaver.py	/^class Busy(tm.Turing):$/;"	class	line:2	inherits:tm.Turing
-Busy	4_state_busy_beaver.py	/^class Busy(tm.Turing):$/;"	class	line:2	inherits:tm.Turing
-Busy	5_state_busy_beaver.py	/^class Busy(tm.Turing):$/;"	class	line:2	inherits:tm.Turing
-Busy	busy_beaver.py	/^class Busy(tm.Turing):$/;"	class	line:4	inherits:tm.Turing
+Busy	3_state_busy_beaver.py	/^class Busy(Turing):$/;"	class	line:2	inherits:Busy
+Busy	4_state_busy_beaver.py	/^class Busy(Turing):$/;"	class	line:2	inherits:Turing
+Busy	5_state_busy_beaver.py	/^class Busy(Turing):$/;"	class	line:2	inherits:Turing
+Busy	busy_beaver.py	/^class Busy(Turing):$/;"	class	line:4	inherits:Turing
 C	busy_beaver.py	/^    def C(self):$/;"	member	line:32
 Turing	turing_machine.py	/^class Turing():$/;"	class	line:1	inherits:
 __init__	3_state_busy_beaver.py	/^    def __init__(self, start_pos, tape, blank, state):$/;"	member	line:5
