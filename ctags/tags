@@ -1,0 +1,40 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+A	busy_beaver.py	/^    def A(self):$/;"	member	line:12
+B	busy_beaver.py	/^    def B(self):$/;"	member	line:22
+Busy	3_state_busy_beaver.py	/^class Busy(Turing):$/;"	class	line:2	inherits:Busy
+Busy	4_state_busy_beaver.py	/^class Busy(Turing):$/;"	class	line:2	inherits:Turing
+Busy	5_state_busy_beaver.py	/^class Busy(Turing):$/;"	class	line:2	inherits:Turing
+Busy	busy_beaver.py	/^class Busy(Turing):$/;"	class	line:4	inherits:Turing
+C	busy_beaver.py	/^    def C(self):$/;"	member	line:32
+Turing	turing_machine.py	/^class Turing():$/;"	class	line:1	inherits:
+__init__	3_state_busy_beaver.py	/^    def __init__(self, start_pos, tape, blank, state):$/;"	member	line:5
+__init__	4_state_busy_beaver.py	/^    def __init__(self, start_pos, tape, blank, state):$/;"	member	line:4
+__init__	5_state_busy_beaver.py	/^    def __init__(self, start_pos, tape, blank, state):$/;"	member	line:5
+__init__	busy_beaver.py	/^    def __init__(self, start_pos, tape, blank):$/;"	member	line:8
+__init__	turing_machine.py	/^    def __init__(self, start_pos, tape, blank, state):$/;"	member	line:3
+busy	busy_beaver.py	/^busy = Busy(0, [0], 0)$/;"	variable	line:42
+busy_beaver	3_state_busy_beaver.py	/^busy_beaver = Busy(0, 0, 0, "A0")$/;"	variable	line:28
+busy_beaver	4_state_busy_beaver.py	/^busy_beaver = Busy(0, 0, 0, "A0")$/;"	variable	line:34
+busy_beaver	5_state_busy_beaver.py	/^busy_beaver = Busy(0, 0, 0, "A0")$/;"	variable	line:37
+counter	work.py	/^counter = 0$/;"	variable	line:5
+fl	work.py	/^fl = ''.join(fl)$/;"	variable	line:12
+fl	work.py	/^fl = fl.read()$/;"	variable	line:2
+fl	work.py	/^fl = list(fl)$/;"	variable	line:4
+fl	work.py	/^fl = open("turing_example")$/;"	variable	line:1
+l	turing_machine.py	/^    def l(self):$/;"	member	line:21
+pdb	work.py	/^import pdb; pdb.set_trace()$/;"	namespace	line:6
+r	turing_machine.py	/^    def r(self):$/;"	member	line:12
+reader	3_state_busy_beaver.py	/^    def reader(self):$/;"	member	line:16
+reader	4_state_busy_beaver.py	/^    def reader(self):$/;"	member	line:17
+reader	5_state_busy_beaver.py	/^    def reader(self):$/;"	member	line:21
+set_trace	work.py	/^import pdb; pdb.set_trace()$/;"	namespace	line:6
+tm	3_state_busy_beaver.py	/^import turing_machine as tm$/;"	namespace	line:1
+tm	4_state_busy_beaver.py	/^import turing_machine as tm$/;"	namespace	line:1
+tm	5_state_busy_beaver.py	/^import turing_machine as tm$/;"	namespace	line:1
+tm	busy_beaver.py	/^import turing_machine as tm$/;"	namespace	line:1
+w	turing_machine.py	/^    def w(self, inp):$/;"	member	line:29

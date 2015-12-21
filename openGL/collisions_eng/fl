@@ -1,0 +1,36 @@
+//config file for collisions simulator v.1.1 by James Hazelden 
+
+//Universe
+
+   //Variables (G, timestep, time)
+      G=1
+      timestep=0.1
+      time=0 
+
+   //Mode (ring, random, free, or free_detailed)
+      mode=
+
+   //Methods (grav, coll, cube) 
+      cube=
+      grav=true
+      coll=
+
+//Graphics (trail, zoom)
+   trail=false 
+   zoom=0.5
+   render=200
+   top=100
+
+//Cube 
+
+   //Bounds
+      xbound=100 
+      ybound=100 
+      zbound=100 
+
+//Planets (bodies, dis, vel, mass, radius)
+   bodies=25
+   mass=1
+   dis=10
+   vel=10
+   radii=1
