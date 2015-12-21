@@ -10,7 +10,6 @@ class Object():
         self.vel = np.array(vel)
         self.forces = np.array([0, 0, 0])
         self.r = r
-        return
 
 class Spring():
     def __init__(self, k, c, connect):
@@ -64,7 +63,6 @@ class Simulate():
         return self.objects
 
     def forces(self):
-        index = 0
         for obj in self.objects:
             if obj.dynamic == False:
                 continue
@@ -78,8 +76,6 @@ class Simulate():
             if 'mouse' in self.methods:
                 if ((self.mousepos[0]-obj.pos[0])**2 + (self.mousepos[1]-obj.pos[1])**2)**0.5 <= self.mouse_r:
                     force.push([self.app_mag*cos(self.alpha)*sin(self.theta), self.app_mag*-sin(self.alpha), self.app_mag*sin(self.theta)*cos(self.alpha)], obj)
-
-            index += 1
         
         if 'springs' in self.methods:
             for spring in self.springs:

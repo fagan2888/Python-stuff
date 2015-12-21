@@ -56,7 +56,6 @@ while True:
         if event.type == pygame.quit:
             pygame.display.quit()
             quit()
-
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_s:
                 glTranslate(0, 0, -10)

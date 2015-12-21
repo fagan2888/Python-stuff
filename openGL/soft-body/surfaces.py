@@ -1,5 +1,4 @@
 from engine import *
-from math import * 
 def cloth(lim, struc_k, shear_k, bend_k, c, m, dis, mode='square'):
     springs = []
     objects = []
@@ -46,4 +45,3 @@ def cloth(lim, struc_k, shear_k, bend_k, c, m, dis, mode='square'):
                 springs.append(Spring(shear_k, c, [x+y*len(points), x-1+(y-1)*len(points)]))
 
     return springs, objects
-
