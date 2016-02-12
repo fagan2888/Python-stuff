@@ -16,7 +16,6 @@ class Spring():
         self.connect = connect
         self.k = k
         self.c = c
-        return
 
 class Simulate():
     def __init__(self, dt, objects, springs, methods):
@@ -60,7 +59,6 @@ class Simulate():
             obj.vel = obj.vel + a*self.dt
             obj.pos = obj.pos + obj.vel*self.dt
             obj.forces = np.array([0, 0, 0])
-        return self.objects
 
     def forces(self):
         for obj in self.objects:
@@ -75,7 +73,7 @@ class Simulate():
             
             if 'mouse' in self.methods:
                 if ((self.mousepos[0]-obj.pos[0])**2 + (self.mousepos[1]-obj.pos[1])**2)**0.5 <= self.mouse_r:
-                    force.push([self.app_mag*cos(self.alpha)*sin(self.theta), self.app_mag*-sin(self.alpha), self.app_mag*sin(self.theta)*cos(self.alpha)], obj)
+                    force.push([self.app_mag*cos(self.alpha)*sin(self.theta), self.app_mag*-sin(self.alpha), -self.app_mag*cos(self.alpha)*cos(self.theta)], obj)
         
         if 'springs' in self.methods:
             for spring in self.springs:

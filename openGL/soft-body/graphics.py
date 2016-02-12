@@ -1,5 +1,6 @@
 from engine import *
 import pygame, surfaces
+import time
 
 from math import *
 from pygame.locals import *
@@ -7,30 +8,30 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 
 ################CONFIGURABLE STUFF##################
-fps_count = True
+fps_count = False
 show_springs = True
 pinmap = False
-spheres = False
+spheres = False 
 
-time_step = 1.0/100
-zoom = 0.5
+time_step = 1.0/50
+zoom = 0.25
 display = (600, 600)
 ####################################################
 
 #PASS THIS IN FROM OTHER FILE#
 ######################
-c = 0.005
-struc_k = 0.025
+c = 0.5
+struc_k = 3
 shear_k = struc_k
-bend_k = struc_k
+bend_k = 5
 total = []
 
-fabric = surfaces.cloth(5, struc_k, shear_k, bend_k, c, 0.001, 2, '1 edge')
-springs = fabric[0]
-objects = fabric[1]
+fabric = surfaces.cloth(10, struc_k, shear_k, bend_k, c, 1, 0.1)
+objects = fabric[0]
+springs = fabric[1]
 
-methods = {'mouse': [0.1, 5], 'down grav': 9.8}
-#######################
+methods = {'down grav': 1}
+########################
 
 sim = Simulate(time_step, objects, springs, methods)
 clock = pygame.time.Clock()
@@ -40,6 +41,7 @@ sp = gluNewQuadric()
 
 top = max([max(obj.pos[:-1])+obj.r for obj in sim.objects])
 render = max([obj.pos[-1]+obj.r for obj in sim.objects])
+render = 10
 
 mid = (top/zoom)/tan(pi/8)
 
@@ -82,21 +84,21 @@ while True:
                 glRotate(-12.25, 0, 1, 0)
                 sim.theta -= pi/16
 
-    mousepos = pygame.mouse.get_pos()
-    sim.mousepos = [(mousepos[0]-display[0]/2)*(top/zoom)/display[0], (display[1]/2-mousepos[1])*(top/zoom)/display[1]]
-
+#    mousepos = pygame.mouse.get_pos()
+#    sim.mousepos = [(mousepos[0]-display[0]/2)*(top/zoom)/display[0], (display[1]/2-mousepos[1])*(top/zoom)/display[1]]
+#
     sim.forces()
-    objects = sim.integrate()
+    sim.integrate()
 
     if pinmap:
         glBegin(GL_POINTS)
-        for p in objects:
+        for p in sim.objects:
             glVertex3f(p.pos[0], p.pos[1], p.pos[2])
         glEnd()
 
 
     if spheres:
-        for p in objects:
+        for p in sim.objects:
             glPushMatrix()
             glTranslate(p.pos[0], p.pos[1], p.pos[2])
             gluSphere(sp, p.r, 6, 6)
@@ -110,7 +112,7 @@ while True:
             glEnd()
 
     pygame.display.flip()
-    glClear(GL_COLOR_BUFFER_BIT)
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
     clock.tick()
     

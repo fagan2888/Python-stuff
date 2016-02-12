@@ -1,4 +1,5 @@
 from engine import *
+from math import *
 def cloth(lim, struc_k, shear_k, bend_k, c, m, dis, mode='square'):
     springs = []
     objects = []
@@ -31,10 +32,10 @@ def cloth(lim, struc_k, shear_k, bend_k, c, m, dis, mode='square'):
         for y in range(len(points)):
             if x < len(points)-1:
                 springs.append(Spring(struc_k, c, [x+y*len(points), x+y*len(points)+1]))
-            if x < len(points)-2:
-                springs.append(Spring(struc_k, c, [x+y*len(points), x+y*len(points)+2]))
             if y < len(points)-1:
-                springs.append(Spring(bend_k, c, [x+y*len(points), x+(y+1)*len(points)]))
+                springs.append(Spring(struc_k, c, [x+y*len(points), x+(y+1)*len(points)]))
+            if x < len(points)-2:
+                springs.append(Spring(bend_k, c, [x+y*len(points), x+y*len(points)+2]))
             if y < len(points)-2:
                 springs.append(Spring(bend_k, c, [x+y*len(points), x+(y+2)*len(points)]))
             
@@ -44,4 +45,4 @@ def cloth(lim, struc_k, shear_k, bend_k, c, m, dis, mode='square'):
                 springs.append(Spring(shear_k, c, [x+y*len(points), x-1+(y+1)*len(points)]))
                 springs.append(Spring(shear_k, c, [x+y*len(points), x-1+(y-1)*len(points)]))
 
-    return springs, objects
+    return objects, springs
